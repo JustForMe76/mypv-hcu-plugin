@@ -1,0 +1,16 @@
+name: HCU Build
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build Docker Image
+        run: docker build -t my-pv-plugin:1.0.0 .
+      - name: Save OCI Image
+        run: docker save my-pv-plugin:1.0.0 > my-pv-plugin.tar
+      - name: Upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: hcu-plugin
+          path: my-pv-plugin.tar
