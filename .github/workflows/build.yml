@@ -1,17 +1,11 @@
-name: Build HCU Plugin
+name: Test Run
 on: [push]
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Packe Dateien (Tarball)
-        run: tar -czvf mypv-plugin.tar.gz index.js plugin.json package.json
-
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: mypv-hcu-plugin
-          path: mypv-plugin.tar.gz
+      - name: Datei-Check
+        run: ls -la
