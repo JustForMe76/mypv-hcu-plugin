@@ -1,0 +1,25 @@
+{
+  "id": "com.mypv.wifimeter.integration",
+  "version": "1.0.0",
+  "name": "my-PV WiFi Meter",
+  "description": "Liest Messdaten aus der my-PV Cloud aus",
+  "author": "SmartHome Entwickler",
+  "requiredConnectApiVersion": "1.0",
+  "devices": [
+    {
+      "id": "mypv_meter_01",
+      "name": "my-PV WiFi Meter",
+      "type": "POWER_METER",
+      "channels": [
+        {
+          "id": "main_channel",
+          "type": "POWER_METER_CHANNEL",
+          "capabilities": [
+            "POWER_MEASUREMENT",
+            "ENERGY_COUNTER"
+          ]
+        }
+      ]
+    }
+  ]
+}

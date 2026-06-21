@@ -1,0 +1,9 @@
+{
+  "name": "mypv-wifimeter-hcu-plugin",
+  "version": "1.0.0",
+  "description": "Homematic HCU Plugin für my-PV WiFi Meter",
+  "main": "index.js",
+  "dependencies": {
+    "ws": "^8.13.0"
+  }
+}
