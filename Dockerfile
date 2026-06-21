@@ -1,7 +1,6 @@
 FROM node:18-alpine
 WORKDIR /app
-COPY package.json ./
+COPY package*.json ./
 RUN npm install
-COPY index.js plugin.json ./
-# Der Befehl, den die HCU später ausführt
+COPY . .
 CMD ["node", "index.js"]
