@@ -7,11 +7,16 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Packe Dateien (Tarball)
-        run: tar -czvf mypv-plugin.tar.gz index.js plugin.json package.json
+      - name: Set up Docker Build
+        uses: docker/setup-buildx-action@v2
+
+      - name: Build and Export OCI Image
+        run: |
+          docker build -t my-pv-plugin:1.0.0 .
+          docker save my-pv-plugin:1.0.0 > my-pv-plugin.tar
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: mypv-plugin-package
-          path: mypv-plugin.tar.gz
+          name: hcu-plugin-package
+          path: my-pv-plugin.tar
